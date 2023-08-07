@@ -1,3 +1,5 @@
+import PianoSpeaker from './components/PianoSpeaker';
+import './styles/PianoSpeaker.css';
 import './App.css';
 
 function App() {
@@ -10,14 +12,15 @@ function App() {
 
         <div className='piano-upper'>
 
-          <div className='piano-speaker'></div>
+          <PianoSpeaker />
 
           <div className='piano-controls'>
             <div className='piano-control-label'>Octave</div>
             <input type='range' min='0' max='100' value='100' />
           </div>
 
-          <div className='piano-speaker'></div>
+          <PianoSpeaker />
+
         </div>
 
         <div className='piano-keyboard'>
