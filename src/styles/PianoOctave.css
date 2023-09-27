@@ -1,5 +1,44 @@
 .piano-octave {
-  background: #fff;
-  width: 100%;
-  height: 200px;
+  display: flex;
+  align-items: flex-start;
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.key {
+  height: 150px;
+  width: 30px;
+  margin-right: 3px;
+  border: 1px solid #999;
+  border-radius: 0 0 5px 5px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.1s;
+}
+
+.key:last-child {
+  margin-right: 0;
+}
+
+.key.white {
+  background-color: #fff;
+  z-index: 1;
+}
+
+.key.black {
+  height: 100px;
+  width: 20px;
+  background-color: #000;
+  margin-right: -10px;
+  z-index: 2;
+}
+
+.key.white:active {
+  background-color: #ddd;
+}
+
+.key.black:active {
+  background-color: #444;
 }
