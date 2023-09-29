@@ -4,7 +4,7 @@
 // Each key has an onClick event handler that calls handleClick(note)
 // with the note name as an argument.
 
-import './PianoOctave.css';
+import '../styles/PianoOctave.css';
 
 const PianoOctave = () => {
 
