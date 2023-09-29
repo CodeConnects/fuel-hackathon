@@ -1,4 +1,6 @@
-function PianoControls(props) {
+import '../styles/PianoControls.css';
+
+const PianoControls = () => {
   return (
     <div className="piano-controls">
       controls
