@@ -1,12 +1,16 @@
 import PianoSpeaker from './components/PianoSpeaker';
-import './styles/PianoSpeaker.css';
 import PianoControls from './components/PianoControls';
-import './styles/PianoControls.css';
-import PianoKeyboard from './components/PianoKeyboard';
-import './styles/PianoKeyboard.css';
+import PianoOctave from './components/PianoOctave';
 import './App.css';
 
 function App() {
+  const octaves = 5;
+  const pianoKeys = [];
+
+  for (let i = 0; i < octaves; i++) {
+    pianoKeys.push(<PianoOctave key={i} />);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -20,14 +24,7 @@ function App() {
           <PianoSpeaker />
         </div>
 
-        <PianoKeyboard />
-
-        <div className='piano-keyboard'>
-          <div className='white-key'></div>
-          <div className='black-key'></div>
-          <div className='white-key'></div>
-          <div className='black-key'></div>
-        </div>
+        {pianoKeys}
 
       </div>
     </div>
