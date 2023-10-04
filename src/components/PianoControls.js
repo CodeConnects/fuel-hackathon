@@ -1,41 +1,37 @@
 import { useState } from 'react';
-import * as Tone from 'tone';
+import { Destination } from 'tone';
 import '../styles/PianoControls.css';
 
-const PianoControls = () => {
-  
-  const [mute, setMute] = useState(true);
-  const [volume, setVolume] = useState(-Infinity);
+function PianoControls() {
+  const [isMuted, setIsMuted] = useState(true);
+  const [volume, setVolume] = useState(-Infinity);  // Muted
 
-  const toggleMute = () => {
-    Tone.Destination.mute = !mute;
-    setMute(!mute);
-  }
-
-  const handleStart = () => {
-    Tone.start();
-    setVolume(-30); // half of max
-    Tone.Destination.volume.value = volume;
-    setMute(false);
+  const handleMuteToggle = () => {
+    Destination.mute = !Destination.mute;
+    setIsMuted(!isMuted);
   };
 
-  const changeVolume = (e) => {
-    const newVolume = e.target.value;
-    setVolume(newVolume);
-    Tone.Destination.volume.value = newVolume;
+  const handleStart = () => {
+    setVolume(0);
+    Destination.volume.value = 0;  // Half of max
   };
 
   return (
     <div className="piano-controls">
-      <button className='piano-start' onClick={ handleStart }>Start</button>
-      <button className='piano-mute' onClick={ toggleMute }>{mute ? 'Unmute' : 'Mute'}</button>
-      <input className='piano-volume' 
-        type='range' 
-        min='-60' 
-        max='0' 
-        step='1'
+      <button onClick={handleStart}>Start</button>
+      <button onClick={handleMuteToggle}>
+        {isMuted ? "Unmute" : "Mute"}
+      </button>
+      <input
+        type="range"
+        min="-100"
+        max="0"
         value={volume}
-        onChange={ changeVolume } 
+        onChange={e => {
+          const value = parseInt(e.target.value, 10);
+          Destination.volume.value = value;
+          setVolume(value);
+        }}
       />
     </div>
   );
