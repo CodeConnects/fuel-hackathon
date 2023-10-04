@@ -2,17 +2,21 @@
 // It renders the Speakers and Controls components, which are displayed above the keyboard.
 // It also renders the PianoOctave component, which renders the piano keys for each octave.
 
+import * as Tone from 'tone';
+
 import PianoSpeaker from './components/PianoSpeaker';
 import PianoControls from './components/PianoControls';
 import PianoOctave from './components/PianoOctave';
 import './App.css';
+
+const synth = new Tone.Synth().toDestination();
 
 const App = () => {
   const octaves = 5;
   const pianoKeys = [];
 
   for (let i = 0; i < octaves; i++) {
-    pianoKeys.push(<PianoOctave key={i} />);
+    pianoKeys.push(<PianoOctave key={i} oct={i+1} />);
   }
 
   return (
@@ -25,11 +29,13 @@ const App = () => {
 
         <div className='piano-upper'>
           <PianoSpeaker />
-          <PianoControls />
+          <PianoControls synth={synth} />
           <PianoSpeaker />
         </div>
 
-        {pianoKeys}
+        <div className='piano-wrap'>
+          {pianoKeys}
+        </div>
 
       </div>
     </div>
