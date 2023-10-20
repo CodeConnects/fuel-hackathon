@@ -6,7 +6,7 @@ Volume and tone controls
 
 Playable with mouse or keyboard
 
-
+-----------------------
 
 ### Installing and running the Piano app
 
