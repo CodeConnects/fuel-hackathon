@@ -9,9 +9,10 @@ function PianoControls() {
 
   const handleStartToggle = () => {
     setIsMuted(!isMuted);
-    Destination.volume.value = (isMuted ? 40 : 0)
+    Destination.volume.value = (isMuted ? 22 : 0);
+    Destination.mute = (isMuted ? false : true);
     setBtnTxt(isMuted ? "Mute" : "Start");
-    setVolume(isMuted ? 40 : 0);
+    setVolume(isMuted ? 22 : 0);
   };
 
   return (
@@ -20,7 +21,7 @@ function PianoControls() {
       <input
         type="range"
         min="0"
-        max="80"
+        max="70"
         value={volume}
         onChange={e => {
           const value = parseInt(e.target.value, 10);

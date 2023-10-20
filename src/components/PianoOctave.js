@@ -4,12 +4,13 @@
 // Tone.js is used to play the note.
 // Synth is a Tone.js instrument that plays a note when triggered.
 
-import { Synth } from "tone";
+import { Synth, Destination } from "tone";
 
 import '../styles/PianoOctave.css';
 
 const synth = new Synth().toDestination();
-synth.volume.value = -40;
+synth.volume.value = -25;
+Destination.mute = true;
 
 const whiteKeys = ["C", "D", "E", "F", "G", "A", "B"];
 const blackKeys = ["C#", "D#", "F#", "G#", "A#"];
