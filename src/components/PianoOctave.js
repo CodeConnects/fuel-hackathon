@@ -13,46 +13,59 @@ Destination.mute = true;
 
 const whiteKeys = ["C", "D", "E", "F", "G", "A", "B"];
 const blackKeys = ["C#", "D#", "F#", "G#", "A#"];
-const noteLength = "4n";
+const noteLength = "1n";
 
 function PianoOctave({ octave }) {
 
   return (
     <div className="piano-octave">
-      <div className="key white" onMouseDown={() => synth.triggerAttackRelease(`${whiteKeys[0]}${octave}`, noteLength)}>
+      <div className="key white"
+        onMouseDown={() => synth.triggerAttackRelease(`${whiteKeys[0]}${octave}`, noteLength)} 
+        onMouseUp={() => synth.triggerRelease()}>
         {whiteKeys[0]}{octave}
       </div>
-      <div className="key black" onMouseDown={() => synth.triggerAttackRelease(`${blackKeys[0]}${octave}`, noteLength)}>
+      <div className="key black" onMouseDown={() => synth.triggerAttackRelease(`${blackKeys[0]}${octave}`, noteLength)} 
+        onMouseUp={() => synth.triggerRelease()}>
         {blackKeys[0]}{octave}
       </div>
-      <div className="key white" onMouseDown={() => synth.triggerAttackRelease(`${whiteKeys[1]}${octave}`, noteLength)}>
+      <div className="key white" onMouseDown={() => synth.triggerAttackRelease(`${whiteKeys[1]}${octave}`, noteLength)} 
+        onMouseUp={() => synth.triggerRelease()}>
         {whiteKeys[1]}{octave}
       </div>
-      <div className="key black" onMouseDown={() => synth.triggerAttackRelease(`${blackKeys[1]}${octave}`, noteLength)}>
+      <div className="key black" onMouseDown={() => synth.triggerAttackRelease(`${blackKeys[1]}${octave}`, noteLength)} 
+        onMouseUp={() => synth.triggerRelease()}>
         {blackKeys[1]}{octave}
       </div>
-      <div className="key white" onMouseDown={() => synth.triggerAttackRelease(`${whiteKeys[2]}${octave}`, noteLength)}>
+      <div className="key white" onMouseDown={() => synth.triggerAttackRelease(`${whiteKeys[2]}${octave}`, noteLength)} 
+        onMouseUp={() => synth.triggerRelease()}>
         {whiteKeys[2]}{octave}
       </div>
-      <div className="key white" onMouseDown={() => synth.triggerAttackRelease(`${whiteKeys[3]}${octave}`, noteLength)}>
+      <div className="key white" onMouseDown={() => synth.triggerAttackRelease(`${whiteKeys[3]}${octave}`, noteLength)} 
+        onMouseUp={() => synth.triggerRelease()}>
         {whiteKeys[3]}{octave}
       </div>
-      <div className="key black" onMouseDown={() => synth.triggerAttackRelease(`${blackKeys[2]}${octave}`, noteLength)}>
+      <div className="key black" onMouseDown={() => synth.triggerAttackRelease(`${blackKeys[2]}${octave}`, noteLength)} 
+        onMouseUp={() => synth.triggerRelease()}>
         {blackKeys[2]}{octave}
       </div>
-      <div className="key white" onMouseDown={() => synth.triggerAttackRelease(`${whiteKeys[4]}${octave}`, noteLength)}>
+      <div className="key white" onMouseDown={() => synth.triggerAttackRelease(`${whiteKeys[4]}${octave}`, noteLength)} 
+        onMouseUp={() => synth.triggerRelease()}>
         {whiteKeys[4]}{octave}
       </div>
-      <div className="key black" onMouseDown={() => synth.triggerAttackRelease(`${blackKeys[3]}${octave}`, noteLength)}>
+      <div className="key black" onMouseDown={() => synth.triggerAttackRelease(`${blackKeys[3]}${octave}`, noteLength)} 
+        onMouseUp={() => synth.triggerRelease()}>
         {blackKeys[3]}{octave}
       </div>
-      <div className="key white" onMouseDown={() => synth.triggerAttackRelease(`${whiteKeys[5]}${octave}`, noteLength)}>
+      <div className="key white" onMouseDown={() => synth.triggerAttackRelease(`${whiteKeys[5]}${octave}`, noteLength)} 
+        onMouseUp={() => synth.triggerRelease()}>
         {whiteKeys[5]}{octave}
       </div>
-      <div className="key black" onMouseDown={() => synth.triggerAttackRelease(`${blackKeys[4]}${octave}`, noteLength)}>
+      <div className="key black" onMouseDown={() => synth.triggerAttackRelease(`${blackKeys[4]}${octave}`, noteLength)} 
+        onMouseUp={() => synth.triggerRelease()}>
         {blackKeys[4]}{octave}
       </div>
-      <div className="key white" onMouseDown={() => synth.triggerAttackRelease(`${whiteKeys[6]}${octave}`, noteLength)}>
+      <div className="key white" onMouseDown={() => synth.triggerAttackRelease(`${whiteKeys[6]}${octave}`, noteLength)} 
+        onMouseUp={() => synth.triggerRelease()}>
         {whiteKeys[6]}{octave}
       </div>
     </div>
