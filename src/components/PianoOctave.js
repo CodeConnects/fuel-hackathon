@@ -5,7 +5,6 @@
 // Synth is a Tone.js instrument that plays a note when triggered.
 
 import { Synth, Destination } from "tone";
-
 import '../styles/PianoOctave.css';
 
 const synth = new Synth().toDestination();
