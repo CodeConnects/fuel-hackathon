@@ -8,7 +8,7 @@ import PianoOctave from './PianoOctave';
 import '../styles/Piano.css';
 
 const Piano = () => {
-  const NUM_OCTAVES = 5;
+  const NUM_OCTAVES = 7;
 
   return (
     <div className='piano'>

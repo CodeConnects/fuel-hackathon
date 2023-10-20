@@ -1,6 +1,7 @@
 .piano-wrap {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   background-color: #eee;
   padding: 10px;
   border-radius: 5px;
@@ -10,26 +11,25 @@
 
 .piano-octave {
   display: flex;
-  flex-wrap: wrap; /* This allows for the wrapping behavior */
-  justify-content: center; /* This centers the octaves */
-  align-items: flex-start;
   background-color: #eee;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   width: fit-content; /* This makes sure the background only wraps around the content */
-  margin: 0 auto; /* This centers the entire piano container */
+  position: relative;
 }
 
 .key {
   height: 150px;
-  width: 30px;
+  width: 36px;
   margin-right: 3px;
   border: 1px solid #999;
   border-radius: 0 0 5px 5px;
   cursor: pointer;
   user-select: none;
   transition: 0.1s;
+  display: grid;
+  align-content: end;
 }
 
 .key:last-child {
@@ -43,10 +43,14 @@
 
 .key.black {
   height: 100px;
-  width: 20px;
+  width: 26px;
   background-color: #000;
-  margin-right: -10px; /* to position the black keys correctly between the white keys */
+  margin-right: -28px; /* to position the black keys correctly between the white keys */
   z-index: 2;
+  color: #fff;
+  font-size: 12px;
+  position: relative;
+  left: -15px
 }
 
 .key.white:active {
