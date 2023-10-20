@@ -9,6 +9,7 @@ import { Synth } from "tone";
 import '../styles/PianoOctave.css';
 
 const synth = new Synth().toDestination();
+synth.volume.value = -40;
 
 const whiteKeys = ["C", "D", "E", "F", "G", "A", "B"];
 const blackKeys = ["C#", "D#", "F#", "G#", "A#"];

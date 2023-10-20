@@ -4,33 +4,28 @@ import '../styles/PianoControls.css';
 
 function PianoControls() {
   const [isMuted, setIsMuted] = useState(true);
-  const [volume, setVolume] = useState(-Infinity);  // Muted
+  const [volume, setVolume] = useState(0);
+  const [btnTxt, setBtnTxt] = useState("Start");
 
-  const handleMuteToggle = () => {
-    Destination.mute = !Destination.mute;
+  const handleStartToggle = () => {
     setIsMuted(!isMuted);
-  };
-
-  const handleStart = () => {
-    setVolume(0);
-    Destination.volume.value = 0;  // Half of max
+    Destination.volume.value = (isMuted ? 40 : 0)
+    setBtnTxt(isMuted ? "Mute" : "Start");
+    setVolume(isMuted ? 40 : 0);
   };
 
   return (
     <div className="piano-controls">
-      <button onClick={handleStart}>Start</button>
-      <button onClick={handleMuteToggle}>
-        {isMuted ? "Unmute" : "Mute"}
-      </button>
+      <button onClick={handleStartToggle}>{btnTxt}</button>
       <input
         type="range"
-        min="-5"
-        max="5"
+        min="0"
+        max="80"
         value={volume}
         onChange={e => {
           const value = parseInt(e.target.value, 10);
-          Destination.volume.value = -value;
-          setVolume(-value);
+          Destination.volume.value = value;
+          setVolume(value);
         }}
       />
     </div>
