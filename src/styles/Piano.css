@@ -1,0 +1,6 @@
+.piano-upper {
+  display: flex;
+  justify-content: center;
+  border-top:10px solid black;
+  border-bottom:10px solid black;
+}
