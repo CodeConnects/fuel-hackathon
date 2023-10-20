@@ -5,5 +5,8 @@
   flex-wrap: wrap;
   gap: 1rem;
   padding: 1rem;
-  width: 30%;
+  width: 32%;
+  background-color: #282c34;
+  background-color: #2d2a2a;
+  background-color: #212020;
 }
