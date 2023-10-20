@@ -6,7 +6,9 @@ Volume and tone controls
 
 Playable with mouse or keyboard
 
-## Installing and running the Piano app
+
+
+### Installing and running the Piano app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
