@@ -24,13 +24,13 @@ function PianoControls() {
       </button>
       <input
         type="range"
-        min="-100"
-        max="0"
+        min="-5"
+        max="5"
         value={volume}
         onChange={e => {
           const value = parseInt(e.target.value, 10);
-          Destination.volume.value = value;
-          setVolume(value);
+          Destination.volume.value = -value;
+          setVolume(-value);
         }}
       />
     </div>
