@@ -8,9 +8,13 @@
   border-bottom:10px solid black;
 }
 .piano-speaker {
-  background-color: #212020;
   opacity: 0.8;
-  background-image:  linear-gradient(135deg, #2d2a2a 25%, transparent 25%), linear-gradient(225deg, #2d2a2a 25%, transparent 25%), linear-gradient(45deg, #2d2a2a 25%, transparent 25%), linear-gradient(315deg, #2d2a2a 25%, #212020 25%);
+  /*background-color: #212020;
+  background-image:  linear-gradient(135deg, #2d2a2a 25%, transparent 25%), linear-gradient(225deg, #2d2a2a 25%, transparent 25%), linear-gradient(45deg, #2d2a2a 25%, transparent 25%), linear-gradient(315deg, #2d2a2a 25%, #212020 25%);*/
+
+  background-color: #282c34;
+  background-image:  linear-gradient(135deg, #555e6f 25%, transparent 25%), linear-gradient(225deg, #555e6f 25%, transparent 25%), linear-gradient(45deg, #555e6f 25%, transparent 25%), linear-gradient(315deg, #555e6f 25%, #282c34 25%);
+
   background-position:  10px 0, 10px 0, 0 0, 0 0;
   background-size: 20px 20px;
   background-repeat: repeat;
