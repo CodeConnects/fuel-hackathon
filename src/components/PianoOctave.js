@@ -60,73 +60,85 @@ function PianoOctave({ octave }) {
     <div className="piano-octave">
       <div className="key white"
         onMouseDown={() => pianoSampler.triggerAttack(`${whiteKeys[0]}${octave}`)} 
-        onMouseUp={() => pianoSampler.triggerRelease(`${whiteKeys[0]}${octave}`)}>
+        onMouseUp={() => pianoSampler.triggerRelease(`${whiteKeys[0]}${octave}`)}
+        onMouseOut={() => pianoSampler.triggerRelease(`${whiteKeys[0]}${octave}`)}>
         <label>{whiteKeys[0]}{octave}</label>
       </div>
 
       <div className="key black" 
         onMouseDown={() => pianoSampler.triggerAttack(`${blackKeys[0]}${octave}`)} 
-        onMouseUp={() => pianoSampler.triggerRelease(`${blackKeys[0]}${octave}`)}>
+        onMouseUp={() => pianoSampler.triggerRelease(`${blackKeys[0]}${octave}`)}
+        onMouseOut={() => pianoSampler.triggerRelease(`${blackKeys[0]}${octave}`)}>
         <label>{blackKeys[0]}{octave}</label>
       </div>
 
       <div className="key white" 
         onMouseDown={() => pianoSampler.triggerAttack(`${whiteKeys[1]}${octave}`)} 
-        onMouseUp={() => pianoSampler.triggerRelease(`${whiteKeys[1]}${octave}`)}>
+        onMouseUp={() => pianoSampler.triggerRelease(`${whiteKeys[1]}${octave}`)}
+        onMouseOut={() => pianoSampler.triggerRelease(`${whiteKeys[1]}${octave}`)}>
         <label>{whiteKeys[1]}{octave}</label>
       </div>
 
       <div className="key black" 
         onMouseDown={() => pianoSampler.triggerAttack(`${blackKeys[1]}${octave}`)} 
-        onMouseUp={() => pianoSampler.triggerRelease(`${blackKeys[1]}${octave}`)}>
+        onMouseUp={() => pianoSampler.triggerRelease(`${blackKeys[1]}${octave}`)}
+        onMouseOut={() => pianoSampler.triggerRelease(`${blackKeys[1]}${octave}`)}>
         <label>{blackKeys[1]}{octave}</label>
       </div>
       
       <div className="key white" 
         onMouseDown={() => pianoSampler.triggerAttack(`${whiteKeys[2]}${octave}`)} 
-        onMouseUp={() => pianoSampler.triggerRelease(`${whiteKeys[2]}${octave}`)}>
+        onMouseUp={() => pianoSampler.triggerRelease(`${whiteKeys[2]}${octave}`)}
+        onMouseOut={() => pianoSampler.triggerRelease(`${whiteKeys[2]}${octave}`)}>
         <label>{whiteKeys[2]}{octave}</label>
       </div>
 
       <div className="key white" 
         onMouseDown={() => pianoSampler.triggerAttack(`${whiteKeys[3]}${octave}`)} 
-        onMouseUp={() => pianoSampler.triggerRelease(`${whiteKeys[3]}${octave}`)}>
+        onMouseUp={() => pianoSampler.triggerRelease(`${whiteKeys[3]}${octave}`)}
+        onMouseOut={() => pianoSampler.triggerRelease(`${whiteKeys[3]}${octave}`)}>
         <label>{whiteKeys[3]}{octave}</label>
       </div>
 
       <div className="key black" 
         onMouseDown={() => pianoSampler.triggerAttack(`${blackKeys[2]}${octave}`)} 
-        onMouseUp={() => pianoSampler.triggerRelease(`${blackKeys[2]}${octave}`)}>
+        onMouseUp={() => pianoSampler.triggerRelease(`${blackKeys[2]}${octave}`)}
+        onMouseOut={() => pianoSampler.triggerRelease(`${blackKeys[2]}${octave}`)}>
         <label>{blackKeys[2]}{octave}</label>
       </div>
 
       <div className="key white" 
         onMouseDown={() => pianoSampler.triggerAttack(`${whiteKeys[4]}${octave}`)} 
-        onMouseUp={() => pianoSampler.triggerRelease(`${whiteKeys[4]}${octave}`)}>
+        onMouseUp={() => pianoSampler.triggerRelease(`${whiteKeys[4]}${octave}`)}
+        onMouseOut={() => pianoSampler.triggerRelease(`${whiteKeys[4]}${octave}`)}>
         <label>{whiteKeys[4]}{octave}</label>
       </div>
 
       <div className="key black" 
         onMouseDown={() => pianoSampler.triggerAttack(`${blackKeys[3]}${octave}`)} 
-        onMouseUp={() => pianoSampler.triggerRelease(`${blackKeys[3]}${octave}`)}>
+        onMouseUp={() => pianoSampler.triggerRelease(`${blackKeys[3]}${octave}`)}
+        onMouseOut={() => pianoSampler.triggerRelease(`${blackKeys[3]}${octave}`)}>
         <label>{blackKeys[3]}{octave}</label>
       </div>
 
       <div className="key white" 
         onMouseDown={() => pianoSampler.triggerAttack(`${whiteKeys[5]}${octave}`)} 
-        onMouseUp={() => pianoSampler.triggerRelease(`${whiteKeys[5]}${octave}`)}>
+        onMouseUp={() => pianoSampler.triggerRelease(`${whiteKeys[5]}${octave}`)}
+        onMouseOut={() => pianoSampler.triggerRelease(`${whiteKeys[5]}${octave}`)}>
         <label>{whiteKeys[5]}{octave}</label>
       </div>
 
       <div className="key black" 
         onMouseDown={() => pianoSampler.triggerAttack(`${blackKeys[4]}${octave}`)} 
-        onMouseUp={() => pianoSampler.triggerRelease(`${blackKeys[4]}${octave}`)}>
+        onMouseUp={() => pianoSampler.triggerRelease(`${blackKeys[4]}${octave}`)}
+        onMouseOut={() => pianoSampler.triggerRelease(`${blackKeys[4]}${octave}`)}>
         <label>{blackKeys[4]}{octave}</label>
       </div>
 
       <div className="key white" 
         onMouseDown={() => pianoSampler.triggerAttack(`${whiteKeys[6]}${octave}`)} 
-        onMouseUp={() => pianoSampler.triggerRelease(`${whiteKeys[6]}${octave}`)}>
+        onMouseUp={() => pianoSampler.triggerRelease(`${whiteKeys[6]}${octave}`)}
+        onMouseOut={() => pianoSampler.triggerRelease(`${whiteKeys[6]}${octave}`)}>
         <label>{whiteKeys[6]}{octave}</label>
       </div>
     </div>
