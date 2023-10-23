@@ -2,9 +2,9 @@
 
 7 Octave responsive design digital piano
 
-Volume and tone controls
-
 Playable with mouse or keyboard
+
+Volume slider
 
 -----------------------
 

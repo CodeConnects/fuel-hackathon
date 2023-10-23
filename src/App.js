@@ -1,4 +1,5 @@
 // This App component is the root of the React application and displays a piano keyboard.
+// There is an opening title that fades out after 5 seconds.
 
 import React, { useEffect } from 'react';
 import Piano from './components/Piano';
