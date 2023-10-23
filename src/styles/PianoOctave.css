@@ -12,9 +12,9 @@
 .piano-octave {
   display: flex;
   background-color: #eee;
-  padding: 10px;
-  border-radius: 0px 0px 5px 5px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 0px 1px 10px 2px;
+  margin-top: 10px;
+  border-top: 4px solid black;
   width: fit-content; /* This makes sure the background only wraps around the content */
   position: relative;
 }
@@ -24,6 +24,7 @@
   width: 36px;
   margin-right: 3px;
   border: 1px solid #999;
+  border-top: 0px;
   border-radius: 0 0 5px 5px;
   cursor: pointer;
   user-select: none;
