@@ -2,7 +2,7 @@
 // It calls the Speakers and Controls components, which are displayed above the keyboard.
 // It also renders the PianoOctave component, which renders the piano keys for each octave.
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import * as Tone from 'tone';
 
 import Speaker from './Speaker';
@@ -71,17 +71,17 @@ const Piano = () => {
     setSampler(sampler);
   }, []);
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = useCallback((event) => {
     if (sampler && !pressedKeys.has(event.key)) {
       const note = getNoteFromKeyboard(event.key);
       if (note) {
         sampler.triggerAttack(note);
-        setPressedKeys(new Set(pressedKeys).add(event.key));
+        setPressedKeys(new Set(pressedKeys.add(event.key)));
       }
     }
-  };
+  }, [sampler, pressedKeys]);
 
-  const handleKeyUp = (event) => {
+  const handleKeyUp = useCallback((event) => {
     if (sampler && pressedKeys.has(event.key)) {
       const note = getNoteFromKeyboard(event.key);
       if (note) {
@@ -91,7 +91,7 @@ const Piano = () => {
         setPressedKeys(newPressedKeys);
       }
     }
-  };
+  }, [sampler, pressedKeys]);
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
@@ -100,7 +100,7 @@ const Piano = () => {
       document.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('keyup', handleKeyUp);
     };
-  }, [sampler, pressedKeys]);
+  }, [handleKeyDown, handleKeyUp]);
 
   return (
     <div className='piano'>
