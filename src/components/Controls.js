@@ -1,12 +1,12 @@
-// this component has a button to start the piano and a slider to control the volume
-// it uses the Destination object from Tone.js to control the volume of the piano
-// it uses the mute property of the Destination object to mute the piano
+// This component has a button to start the piano and a slider to control the volume.
+// It uses the Destination object from Tone.js to control the volume of the piano.
+// It uses the mute property of the Destination object to mute the piano.
 
 import { useState } from 'react';
 import { Destination } from 'tone';
-import '../styles/PianoControls.css';
+import '../styles/Controls.css';
 
-function PianoControls() {
+function Controls() {
   const [isMuted, setIsMuted] = useState(true);
   const [volume, setVolume] = useState(0);
   const [btnTxt, setBtnTxt] = useState("Start");
@@ -37,4 +37,4 @@ function PianoControls() {
   );
 }
 
-export default PianoControls;
+export default Controls;

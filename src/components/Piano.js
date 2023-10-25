@@ -1,13 +1,13 @@
-// Piano component to display a piano keyboard.
-// It renders the Speakers and Controls components, which are displayed above the keyboard.
+// This component displays a piano keyboard.
+// It calls the Speakers and Controls components, which are displayed above the keyboard.
 // It also renders the PianoOctave component, which renders the piano keys for each octave.
 
 import { useState, useEffect } from 'react';
 import * as Tone from 'tone';
 
-import PianoSpeaker from './PianoSpeaker';
-import PianoControls from './PianoControls';
-import PianoOctave from './PianoOctave';
+import Speaker from './Speaker';
+import Controls from './Controls';
+import Octave from './Octave';
 import '../styles/Piano.css';
 
 const audioFiles = {
@@ -57,6 +57,8 @@ const Piano = () => {
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [sampler, setSampler] = useState(null);
+  const [pressedKeys, setPressedKeys] = useState(new Set());
+
 
   useEffect(() => {
     const sampler = new Tone.Sampler(audioFiles, {
@@ -70,19 +72,23 @@ const Piano = () => {
   }, []);
 
   const handleKeyDown = (event) => {
-    if (sampler) {
+    if (sampler && !pressedKeys.has(event.key)) {
       const note = getNoteFromKeyboard(event.key);
       if (note) {
         sampler.triggerAttack(note);
+        setPressedKeys(new Set(pressedKeys).add(event.key));
       }
     }
   };
 
   const handleKeyUp = (event) => {
-    if (sampler) {
+    if (sampler && pressedKeys.has(event.key)) {
       const note = getNoteFromKeyboard(event.key);
       if (note) {
         sampler.triggerRelease(note);
+        const newPressedKeys = new Set(pressedKeys);
+        newPressedKeys.delete(event.key);
+        setPressedKeys(newPressedKeys);
       }
     }
   };
@@ -94,7 +100,7 @@ const Piano = () => {
       document.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('keyup', handleKeyUp);
     };
-  }, [sampler]);
+  }, [sampler, pressedKeys]);
 
   return (
     <div className='piano'>
@@ -104,14 +110,14 @@ const Piano = () => {
       </div>
 
       <div className='piano-upper'>
-        <PianoSpeaker />
-        <PianoControls />
-        <PianoSpeaker />
+        <Speaker />
+        <Controls />
+        <Speaker />
       </div>
 
       <div className='piano-wrap'>
         {Array.from({ length: NUM_OCTAVES }, (_, i) => (
-          <PianoOctave key={i} octave={i + 1} sampler={sampler} />
+          <Octave key={i} octave={i + 1} sampler={sampler} />
         ))}
       </div>
 

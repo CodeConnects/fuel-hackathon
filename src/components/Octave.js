@@ -1,13 +1,11 @@
 // This component renders a single octave of a piano keyboard.
-// It consists of 12 keys: 7 white keys and 5 black keys.
-// Each key has an onClick function that triggers a note on the pianoSampler
-// Tone.js is used to play the notes.
-// Sampler is a polyphonic Tone.js class that plays a sampled or calculated note when triggered.
+// It consists of the standard 12 piano keys: 7 white and 5 black.
 
-import '../styles/PianoOctave.css';
+
+import '../styles/Octave.css';
 import PianoKey from './PianoKey';
 
-function PianoOctave({ octave, sampler }) {
+function Octave({ octave, sampler }) {
   
   const whiteKeys = ["C", "D", "E", "F", "G", "A", "B"];
   const blackKeys = ["C#", "D#", "F#", "G#", "A#"];
@@ -30,4 +28,4 @@ function PianoOctave({ octave, sampler }) {
   );
 }
 
-export default PianoOctave;
+export default Octave;
