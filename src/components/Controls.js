@@ -7,16 +7,16 @@ import { Destination } from 'tone';
 import '../styles/Controls.css';
 
 function Controls() {
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(0);
-  const [btnTxt, setBtnTxt] = useState("Start");
+  const [btnTxt, setBtnTxt] = useState("Mute");
 
   const handleStartToggle = () => {
     setIsMuted(!isMuted);
-    Destination.volume.value = (isMuted ? 22 : 0);
+    Destination.volume.value = (isMuted ? 0 : -34);
     Destination.mute = (isMuted ? false : true);
     setBtnTxt(isMuted ? "Mute" : "Start");
-    setVolume(isMuted ? 22 : 0);
+    setVolume(isMuted ? 0 : -34);
   };
 
   return (
@@ -24,8 +24,8 @@ function Controls() {
       <button onClick={handleStartToggle}>{btnTxt}</button>
       <input
         type="range"
-        min="0"
-        max="70"
+        min="-34"
+        max="34"
         value={volume}
         onChange={e => {
           const value = parseInt(e.target.value, 10);

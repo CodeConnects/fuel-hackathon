@@ -66,7 +66,7 @@ const Piano = () => {
         setIsLoaded(true);
       }
     }).toDestination();
-    //pianoSampler.volume.value = -25;
+    sampler.volume.value = 0;
     //Destination.mute = true;
     setSampler(sampler);
   }, []);
