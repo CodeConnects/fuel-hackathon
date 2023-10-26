@@ -7,7 +7,7 @@ import { Destination } from 'tone';
 import { saveAs } from 'file-saver';
 import '../styles/Controls.css';
 
-function Controls({ isRecording, startRecording, stopRecording, /*playRecording, saveRecording,*/ clearRecording, recording }) {
+function Controls({ isRecording, startRecording, stopRecording, clearRecording, recording }) {
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(0);
   const [btnTxt, setBtnTxt] = useState("Mute");
@@ -19,7 +19,7 @@ function Controls({ isRecording, startRecording, stopRecording, /*playRecording,
     setIsMuted(!isMuted);
     Destination.volume.value = (isMuted ? 0 : -34);
     Destination.mute = (isMuted ? false : true);
-    setBtnTxt(isMuted ? "Mute" : "Start");
+    setBtnTxt(isMuted ? "Mute" : "Unmute");
     setVolume(isMuted ? 0 : -34);
   };
 
