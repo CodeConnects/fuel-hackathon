@@ -23,7 +23,7 @@ const App = () => {
     <div className="app">
 
       <header className="app-header">
-        <h1 id="opening-title">7 Octave Piano Synthesizer</h1>
+        <h1 id="opening-title">7 Octave Digital Piano and Recorder</h1>
       </header>
 
       <Piano />
