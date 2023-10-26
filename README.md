@@ -4,7 +4,9 @@
 
 Playable with mouse or keyboard
 
-Volume slider
+Record, playback, and save your songs
+
+Volume slider with mute button
 
 -----------------------
 
