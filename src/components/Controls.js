@@ -6,12 +6,12 @@ import { useState } from 'react';
 import { Destination } from 'tone';
 import '../styles/Controls.css';
 
-function Controls() {
+function Controls({ isRecording, startRecording, stopRecording, playRecording, saveRecording, clearRecording, recording }) {
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(0);
   const [btnTxt, setBtnTxt] = useState("Mute");
 
-  const handleStartToggle = () => {
+  const handleMuteToggle = () => {
     setIsMuted(!isMuted);
     Destination.volume.value = (isMuted ? 0 : -34);
     Destination.mute = (isMuted ? false : true);
@@ -21,18 +21,32 @@ function Controls() {
 
   return (
     <div className="piano-controls">
-      <button onClick={handleStartToggle}>{btnTxt}</button>
-      <input
-        type="range"
-        min="-34"
-        max="34"
-        value={volume}
-        onChange={e => {
-          const value = parseInt(e.target.value, 10);
-          Destination.volume.value = value;
-          setVolume(value);
-        }}
-      />
+      <div className="piano-controls-volume">
+        <button onClick={handleMuteToggle}>{btnTxt}</button>
+        <input
+          type="range"
+          min="-34"
+          max="15"
+          value={volume}
+          onChange={e => {
+            const value = parseInt(e.target.value, 10);
+            Destination.volume.value = value;
+            setVolume(value);
+          }}
+        />
+      </div>
+
+      <div className="piano-controls-record">
+        <button onClick={isRecording ? stopRecording : startRecording}>
+          {isRecording ? 'Stop' : 'Record'}
+        </button>
+
+        <button onClick={playRecording} disabled={!recording}>Play</button>
+
+        <button onClick={saveRecording} disabled={!recording}>Save</button>
+
+        <button onClick={clearRecording} disabled={!recording}>Clear</button>
+      </div>
     </div>
   );
 }

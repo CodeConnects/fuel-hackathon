@@ -4,6 +4,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import * as Tone from 'tone';
+import { saveAs } from 'file-saver';
 
 import Speaker from './Speaker';
 import Controls from './Controls';
@@ -58,17 +59,25 @@ const Piano = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [sampler, setSampler] = useState(null);
   const [pressedKeys, setPressedKeys] = useState(new Set());
+  const [recorder, setRecorder] = useState(null);
+  const [isRecording, setIsRecording] = useState(false);
+  const [recording, setRecording] = useState(null);
 
-
+  // create a new Sampler and load the audio files
   useEffect(() => {
     const sampler = new Tone.Sampler(audioFiles, {
       onload: () => {
         setIsLoaded(true);
       }
     }).toDestination();
+
+    const recorder = new Tone.Recorder();
+    sampler.connect(recorder);
     sampler.volume.value = 0;
     //Destination.mute = true;
+
     setSampler(sampler);
+    setRecorder(recorder);
   }, []);
 
   const handleKeyDown = useCallback((event) => {
@@ -102,6 +111,34 @@ const Piano = () => {
     };
   }, [handleKeyDown, handleKeyUp]);
 
+  const startRecording = async () => {
+    await Tone.start();
+    recorder.start();
+    setIsRecording(true);
+  };
+
+  const stopRecording = async () => {
+    const recording = await recorder.stop();
+    setRecording(URL.createObjectURL(recording));
+    setIsRecording(false);
+  };
+
+  const playRecording = () => {
+    const audio = new Audio(recording);
+    audio.play();
+  };
+
+  const saveRecording = () => {
+    const a = document.createElement('a');
+    a.href = recording;
+    a.download = 'piano-recording.mp3';
+    a.click();
+  };
+
+  const clearRecording = () => {
+    setRecording(null);
+  };
+
   return (
     <div className='piano'>
 
@@ -111,7 +148,15 @@ const Piano = () => {
 
       <div className='piano-upper'>
         <Speaker />
-        <Controls />
+        <Controls
+          isRecording={isRecording}
+          startRecording={startRecording}
+          stopRecording={stopRecording}
+          playRecording={playRecording}
+          saveRecording={saveRecording}
+          recording={recording}
+          clearRecording={clearRecording}
+        />
         <Speaker />
       </div>
 
