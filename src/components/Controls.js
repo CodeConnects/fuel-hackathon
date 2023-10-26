@@ -4,12 +4,16 @@
 
 import { useState } from 'react';
 import { Destination } from 'tone';
+import { saveAs } from 'file-saver';
 import '../styles/Controls.css';
 
-function Controls({ isRecording, startRecording, stopRecording, playRecording, saveRecording, clearRecording, recording }) {
+function Controls({ isRecording, startRecording, stopRecording, /*playRecording, saveRecording,*/ clearRecording, recording }) {
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(0);
   const [btnTxt, setBtnTxt] = useState("Mute");
+
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [audio, setAudio] = useState(null);
 
   const handleMuteToggle = () => {
     setIsMuted(!isMuted);
@@ -17,6 +21,28 @@ function Controls({ isRecording, startRecording, stopRecording, playRecording, s
     Destination.mute = (isMuted ? false : true);
     setBtnTxt(isMuted ? "Mute" : "Start");
     setVolume(isMuted ? 0 : -34);
+  };
+
+  const playRecording = () => {
+    if (!isPlaying) {
+      const audio = new Audio(recording);
+      audio.play();
+      setAudio(audio);
+      setIsPlaying(true);
+
+      audio.addEventListener('ended', () => {
+        setIsPlaying(false);
+      });
+    } else {
+      if (audio) {
+        audio.pause();
+        setIsPlaying(false);
+      }
+    }
+  };
+
+  const saveRecording = () => {
+    saveAs(recording, 'piano-recording.mp3');
   };
 
   return (
@@ -41,7 +67,7 @@ function Controls({ isRecording, startRecording, stopRecording, playRecording, s
           {isRecording ? 'Stop' : 'Record'}
         </button>
 
-        <button onClick={playRecording} disabled={!recording}>Play</button>
+        <button onClick={playRecording} disabled={!recording}>{isPlaying ? 'Stop' : 'Play'}</button>
 
         <button onClick={saveRecording} disabled={!recording}>Save</button>
 
