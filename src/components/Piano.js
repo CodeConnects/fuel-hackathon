@@ -122,18 +122,6 @@ const Piano = () => {
     setIsRecording(false);
   };
 
-  /*const playRecording = () => {
-    const audio = new Audio(recording);
-    audio.play();
-  };
-
-  const saveRecording = () => {
-    const a = document.createElement('a');
-    a.href = recording;
-    a.download = 'piano-recording.mp3';
-    a.click();
-  };*/
-
   const clearRecording = () => {
     setRecording(null);
   };
@@ -151,8 +139,6 @@ const Piano = () => {
           isRecording={isRecording}
           startRecording={startRecording}
           stopRecording={stopRecording}
-          //playRecording={playRecording}
-          //saveRecording={saveRecording}
           recording={recording}
           clearRecording={clearRecording}
         />
