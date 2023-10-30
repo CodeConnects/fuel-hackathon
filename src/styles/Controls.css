@@ -17,3 +17,20 @@
   position: relative;
   z-index: 100;
 }
+.record-buttons {
+  position: relative;
+}
+.record-filename {
+  position: absolute;
+  bottom: -2px;
+  width: 201px;
+  color: #fff;
+}
+.record-filename input {
+  text-align: center;
+  background: none;
+  border: none;
+  color: #fff;
+  margin: 0px;
+  padding: 0px;
+}
