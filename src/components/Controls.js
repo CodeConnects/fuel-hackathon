@@ -41,8 +41,10 @@ function Controls({ isRecording, startRecording, stopRecording, clearRecording, 
     }
   };
 
+  const [fileName, setFileName] = useState('piano-recording.mp3');  
+
   const saveRecording = () => {
-    saveAs(recording, 'piano-recording.mp3');
+    saveAs(recording, fileName);
   };
 
   return (
@@ -63,15 +65,20 @@ function Controls({ isRecording, startRecording, stopRecording, clearRecording, 
       </div>
 
       <div className="piano-controls-record">
-        <button className="record-button" onClick={isRecording ? stopRecording : startRecording}>
-          {isRecording ? 'Stop' : 'Record'}
-        </button>
 
-        <button onClick={playRecording} disabled={!recording}>{isPlaying ? 'Stop' : 'Play'}</button>
+        <div className="record-buttons">
+          <button className="record-button" onClick={isRecording ? stopRecording : startRecording}>
+            {isRecording ? 'Stop' : 'Record'}
+          </button>
 
-        <button onClick={saveRecording} disabled={!recording}>Save</button>
+          <button onClick={playRecording} disabled={!recording}>{isPlaying ? 'Stop' : 'Play'}</button>
 
-        <button onClick={clearRecording} disabled={!recording}>Clear</button>
+          <button onClick={saveRecording} disabled={!recording}>Save</button>
+
+          <button onClick={clearRecording} disabled={!recording}>Clear</button>
+        </div>
+
+        <div className='record-filename'>{recording ? fileName : 'no file'}</div>
       </div>
     </div>
   );
