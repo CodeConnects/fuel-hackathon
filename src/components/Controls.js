@@ -63,7 +63,7 @@ function Controls({ isRecording, startRecording, stopRecording, clearRecording, 
       </div>
 
       <div className="piano-controls-record">
-        <button onClick={isRecording ? stopRecording : startRecording}>
+        <button className="record-button" onClick={isRecording ? stopRecording : startRecording}>
           {isRecording ? 'Stop' : 'Record'}
         </button>
 
