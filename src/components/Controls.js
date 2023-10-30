@@ -41,7 +41,16 @@ function Controls({ isRecording, startRecording, stopRecording, clearRecording, 
     }
   };
 
-  const [fileName, setFileName] = useState('piano-recording.mp3');  
+  const [fileName, setFileName] = useState('piano-recording.mp3');
+  const [isEditing, setEditing] = useState(false);
+
+  const handleFileNameChange = (event) => {
+    setFileName(event.target.value);
+  };
+
+  const handleBlur = () => {
+    setEditing(false);
+  };
 
   const saveRecording = () => {
     saveAs(recording, fileName);
@@ -78,7 +87,23 @@ function Controls({ isRecording, startRecording, stopRecording, clearRecording, 
           <button onClick={clearRecording} disabled={!recording}>Clear</button>
         </div>
 
-        <div className='record-filename'>{recording ? fileName : 'no file'}</div>
+        <div className='record-filename'>
+          {recording ? (
+            isEditing ? (
+              <input
+                type="text"
+                value={fileName}
+                onChange={handleFileNameChange}
+                onBlur={handleBlur}
+                autoFocus
+              />
+            ) : (
+              <span onDoubleClick={() => setEditing(true)}>{fileName}</span>
+            )
+          ) : (
+            "no file"
+          )}
+        </div>
       </div>
     </div>
   );
