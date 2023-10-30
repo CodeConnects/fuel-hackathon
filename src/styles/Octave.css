@@ -61,3 +61,7 @@
 .key.black:active {
   background-color: #444;
 }
+
+.record-button {
+  min-width: 64px;
+}
