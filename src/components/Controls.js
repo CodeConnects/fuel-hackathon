@@ -48,7 +48,7 @@ function Controls({ isRecording, startRecording, stopRecording, clearRecording, 
   return (
     <div className="piano-controls">
       <div className="piano-controls-volume">
-        <button onClick={handleMuteToggle}>{btnTxt}</button>
+        <button className="mute-btn" onClick={handleMuteToggle}>{btnTxt}</button>
         <input
           type="range"
           min="-34"
