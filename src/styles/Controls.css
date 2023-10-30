@@ -7,4 +7,13 @@
   padding: 1rem;
   width: 32%;
   background-color: #383e49;
+  position: relative;
+  z-index: 50;
+}
+.mute-btn {
+  min-width: 64px;
+}
+.piano-contols-volume input {
+  position: relative;
+  z-index: 100;
 }
