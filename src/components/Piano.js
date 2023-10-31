@@ -137,6 +137,7 @@ const Piano = () => {
     }
   }, [sampler, pressedKeys]);
 
+  // attach piano notes to keyboard keys
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
     document.addEventListener('keyup', handleKeyUp);
@@ -146,20 +147,18 @@ const Piano = () => {
     };
   }, [handleKeyDown, handleKeyUp]);
 
+  // start a new Tone Recording
   const startRecording = async () => {
     await Tone.start();
     recorder.start();
     setIsRecording(true);
   };
 
+  // stop the recording and get the audio file
   const stopRecording = async () => {
     const recording = await recorder.stop();
     setRecording(URL.createObjectURL(recording));
     setIsRecording(false);
-  };
-
-  const clearRecording = () => {
-    setRecording(null);
   };
 
   return (
@@ -176,7 +175,7 @@ const Piano = () => {
           startRecording={startRecording}
           stopRecording={stopRecording}
           recording={recording}
-          clearRecording={clearRecording}
+          setRecording={setRecording}
         />
         <Speaker />
       </div>
