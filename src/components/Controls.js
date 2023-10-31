@@ -7,7 +7,7 @@ import { Destination } from 'tone';
 import { saveAs } from 'file-saver';
 import '../styles/Controls.css';
 
-function Controls({ isRecording, startRecording, stopRecording, clearRecording, recording }) {
+function Controls({ isRecording, startRecording, stopRecording, setRecording, recording }) {
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(0);
   const [btnTxt, setBtnTxt] = useState("Mute");
@@ -41,8 +41,17 @@ function Controls({ isRecording, startRecording, stopRecording, clearRecording, 
     }
   };
 
-  const [fileName, setFileName] = useState('piano-recording.mp3');
+  const [fileName, setFileName] = useState('piano-recording');
   const [isEditing, setEditing] = useState(false);
+
+  const clearRecording = () => {
+    setRecording(null);
+    setFileName('piano-recording');
+  };
+
+  const saveRecording = () => {
+    saveAs(recording, fileName + '.mp3');
+  };
 
   const handleFileNameChange = (event) => {
     setFileName(event.target.value);
@@ -50,10 +59,6 @@ function Controls({ isRecording, startRecording, stopRecording, clearRecording, 
 
   const handleBlur = () => {
     setEditing(false);
-  };
-
-  const saveRecording = () => {
-    saveAs(recording, fileName);
   };
 
   return (
@@ -98,7 +103,15 @@ function Controls({ isRecording, startRecording, stopRecording, clearRecording, 
                 autoFocus
               />
             ) : (
-              <span onDoubleClick={() => setEditing(true)}>{fileName}</span>
+              <span className="editable-field" 
+                onDoubleClick={() => setEditing(true)}
+              >
+                <span class="edit-icon">✏️</span>
+                {fileName}
+                <div className="tooltip" onClick={(e) => { e.currentTarget.style.visibility = 'hidden'; }}>
+                  Double-click to edit the file name
+                </div>
+              </span>
             )
           ) : (
             "no file"
