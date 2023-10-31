@@ -13,6 +13,14 @@
 .mute-btn {
   min-width: 64px;
 }
+.piano-controls-volume { 
+  position: relative; 
+  top: -8px;
+}
+.piano-controls-record { 
+  position: relative; 
+  top: -8px;
+}
 .piano-contols-volume input {
   position: relative;
   z-index: 100;
@@ -22,7 +30,7 @@
 }
 .record-filename {
   position: absolute;
-  bottom: -2px;
+  bottom: -25px;
   width: 201px;
   color: #fff;
 }
@@ -33,4 +41,53 @@
   color: #fff;
   margin: 0px;
   padding: 0px;
+}
+
+.editable-field {
+  position: relative;
+  display: inline-block;
+}
+
+.editable-field input {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.editable-field:hover input {
+  border-color: #4CAF50;
+  background-color: #f0fff0;
+  cursor: text;
+}
+
+.editable-field .edit-icon {
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #ccc;
+}
+
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  transition: none;
+  color: black;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: -60px;
+  background-color: #fefe98;
+  width: 260px;
+}
+
+.editable-field:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s, visibility 0s 0.5s;
 }
