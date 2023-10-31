@@ -113,7 +113,7 @@ function Controls({ isRecording, startRecording, stopRecording, setRecording, re
                 </div>
               </span>
             )
-          ) : ("")}
+          ) : ("empty")}
         </div>
       </div>
     </div>
