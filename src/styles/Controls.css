@@ -30,9 +30,13 @@
 }
 .record-filename {
   position: absolute;
-  bottom: -25px;
-  width: 201px;
+  left: -55%;
+  right: -45%;
+  bottom: -24px;
   color: #fff;
+  min-width: 100%;
+  white-space: nowrap;
+
 }
 .record-filename input {
   text-align: center;
