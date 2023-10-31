@@ -104,12 +104,12 @@ function Controls({ isRecording, startRecording, stopRecording, setRecording, re
               />
             ) : (
               <span className="editable-field" 
-                onDoubleClick={() => setEditing(true)}
+                onClick={() => setEditing(true)}
               >
                 <span class="edit-icon">✏️</span>
                 {fileName}
-                <div className="tooltip" onClick={(e) => { e.currentTarget.style.visibility = 'hidden'; }}>
-                  Double-click to edit the file name
+                <div className="tooltip">
+                  Click to edit the file name
                 </div>
               </span>
             )

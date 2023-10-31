@@ -91,7 +91,7 @@
 }
 
 .editable-field:hover .tooltip {
-  visibility: visible;
+  visibility: visible !important;
   opacity: 1;
-  transition: opacity 0.5s, visibility 0s 0.5s;
+  transition: all 0s 0.2s ease-in;
 }
