@@ -114,7 +114,7 @@ function Controls({ isRecording, startRecording, stopRecording, setRecording, re
               </span>
             )
           ) : (
-            "no file"
+            "no recording"
           )}
         </div>
       </div>
